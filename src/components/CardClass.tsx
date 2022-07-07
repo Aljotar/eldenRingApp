@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native'
@@ -12,8 +13,16 @@ interface Props {
 }
 
 export const CardClass = ({ clases }: Props) => {
+
+    const navigation = useNavigation()
+
     return (
-        <TouchableOpacity>
+        <TouchableOpacity
+            activeOpacity={ 0.9 }
+            onPress= { 
+                () => navigation.navigate('ClassScreen', { ClassData: clases }) }
+        >
+
             <View style={{
                 ...styles.CardContainer,
                 width: windowwidth * 0.4
@@ -30,8 +39,6 @@ export const CardClass = ({ clases }: Props) => {
                     style={styles.classImage}
 
                 />
-
-
             </View>
         </TouchableOpacity>
     )
@@ -40,11 +47,11 @@ export const CardClass = ({ clases }: Props) => {
 const styles = StyleSheet.create({
     CardContainer: {
         marginHorizontal: 10,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#D8D8D8',
         width: 160,
         height: 100,
         marginBottom: 25,
-        borderRadius: 10
+        borderRadius: 10,
 
     },
     name: {
@@ -56,8 +63,8 @@ const styles = StyleSheet.create({
 
     },
     classImage: {
-        width: 80,
-        height: 80,
+        width: 73,
+        height: 120,
         position: 'absolute',
         right: -5,
         bottom: -2,
