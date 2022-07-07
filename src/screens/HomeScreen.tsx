@@ -1,5 +1,6 @@
 import React from 'react'
 import { FlatList, Image, Text, View } from 'react-native'
+import { CardClass } from '../components/CardClass';
 import { FadeInImage } from '../components/FadeInImage';
 import { useClass } from '../hooks/useClass'
 
@@ -8,20 +9,27 @@ export const HomeScreen = () => {
     const { classList } = useClass();
 
     return (
-        <>
+        <View style={{
+            alignItems: 'center'
+        }}>
             <FlatList
                 data={classList}
                 keyExtractor={(clase) => clase.id}
+                numColumns={ 2 }
                 renderItem={({ item }) => (
-                    <FadeInImage
-                        uri={ item.image }
-                        style={{
-                            width: 100,
-                            height: 150
-                        }}
-                    />
+                    <CardClass clases={ item }/>
+                )}
+
+                ListHeaderComponent={(
+                    <Text style={{
+                        fontSize: 30,
+                        fontWeight:'bold'
+
+                    }}>
+                        Class
+                    </Text>
                 )}
             />
-        </>
+        </View>
     )
 }
