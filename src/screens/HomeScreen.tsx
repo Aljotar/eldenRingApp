@@ -1,16 +1,27 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { FlatList, Image, Text, View } from 'react-native'
+import { FadeInImage } from '../components/FadeInImage';
 import { useClass } from '../hooks/useClass'
 
 export const HomeScreen = () => {
 
-    useClass();
+    const { classList } = useClass();
 
     return (
-        <View>
-            <Text>
-                HomeScreen
-            </Text>
-        </View>
+        <>
+            <FlatList
+                data={classList}
+                keyExtractor={(clase) => clase.id}
+                renderItem={({ item }) => (
+                    <FadeInImage
+                        uri={ item.image }
+                        style={{
+                            width: 100,
+                            height: 150
+                        }}
+                    />
+                )}
+            />
+        </>
     )
 }
