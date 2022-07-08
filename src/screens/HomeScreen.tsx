@@ -26,7 +26,9 @@ export const HomeScreen = () => {
                         <Text style={{
                             fontSize: 30,
                             fontWeight: 'bold',
-                            marginTop: 50
+                            marginBottom: 50,
+                            marginTop:10,
+                            color: 'white'
 
                         }}>
                             Class

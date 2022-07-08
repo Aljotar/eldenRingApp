@@ -18,7 +18,7 @@ export const Navigator = () => {
           screenOptions={{
             headerShown: false,
             contentStyle: {
-              backgroundColor: 'white'
+              backgroundColor: '#111111'
             }
           }}
           

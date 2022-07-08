@@ -47,7 +47,7 @@ export const CardClass = ({ clases }: Props) => {
 const styles = StyleSheet.create({
     CardContainer: {
         marginHorizontal: 10,
-        backgroundColor: '#D8D8D8',
+        backgroundColor: '#242424',
         width: 160,
         height: 100,
         marginBottom: 25,
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
 
     },
     name: {
-        color: '#4F4F4F',
+        color: '#FFFFFF',
         fontSize: 20,
         fontWeight: 'bold',
         top: 20,
