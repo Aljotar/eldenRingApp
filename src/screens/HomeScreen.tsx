@@ -5,15 +5,17 @@ import { TouchableOpacity } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { BossData } from '../interface/bossInterface'
 import { ClassData } from '../interface/classInterfaces'
+import { CreatureData } from '../interface/creatureInterface'
 
 
 interface Props {
     clases: ClassData,
-    bosses: BossData
+    bosses: BossData,
+    creatures: CreatureData
 
 }
 
-export const HomeScreen = ({ clases, bosses}: Props) => {
+export const HomeScreen = ({ clases, bosses,creatures}: Props) => {
 
     const navigation = useNavigation()
 
@@ -35,6 +37,15 @@ export const HomeScreen = ({ clases, bosses}: Props) => {
             >
                 <View style={styles.containerList}>
                     <Text>BOSSES</Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+                activeOpacity={0.9}
+                onPress={
+                    () => navigation.navigate('CreatureListScreen', { CreatureData: creatures })}
+            >
+                <View style={styles.containerList}>
+                    <Text>CREATURES</Text>
                 </View>
             </TouchableOpacity>
         </>

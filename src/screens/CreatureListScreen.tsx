@@ -1,8 +1,7 @@
 import React from 'react'
 import { FlatList, Image, Text, View } from 'react-native'
 import { ScrollView } from 'react-native';
-import { CardBoss } from '../components/CardBoss';
-import { useBoss } from '../hooks/useBoss';
+import { Cardcreature } from '../components/CardCreature';
 import { useCreature } from '../hooks/useCreature';
 
 export const CreatureListScreen = () => {
@@ -20,7 +19,7 @@ export const CreatureListScreen = () => {
                     numColumns={2}
                     showsVerticalScrollIndicator={false}
                     renderItem={({ item }) => (
-                        
+                        <Cardcreature creatures={item} />
                     )}
 
                     ListHeaderComponent={(
@@ -32,7 +31,7 @@ export const CreatureListScreen = () => {
                             color: 'white'
 
                         }}>
-                            Bosses
+                            Creatures
                         </Text>
                     )}
                 />
