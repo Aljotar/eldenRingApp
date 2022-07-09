@@ -1,41 +1,51 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
-import { FlatList, Image, Text, View } from 'react-native'
-import { ScrollView } from 'react-native';
-import { CardClass } from '../components/CardClass';
-import { useClass } from '../hooks/useClass'
+import { StyleSheet, Text, View } from 'react-native'
+import { TouchableOpacity } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
+import { BossData } from '../interface/bossInterface'
+import { ClassData } from '../interface/classInterfaces'
 
-export const HomeScreen = () => {
 
-    const { classList } = useClass();
+interface Props {
+    clases: ClassData,
+    bosses: BossData
+
+}
+
+export const HomeScreen = ({ clases, bosses}: Props) => {
+
+    const navigation = useNavigation()
 
     return (
-        <ScrollView>
-            <View style={{
-                alignItems: 'center'
-            }}>
-                <FlatList
-                    data={classList}
-                    keyExtractor={(clase) => clase.id}
-                    numColumns={2}
-                    showsVerticalScrollIndicator={false}
-                    renderItem={({ item }) => (
-                        <CardClass clases={item} />
-                    )}
+        <>
+            <TouchableOpacity
+                activeOpacity={0.9}
+                onPress={
+                    () => navigation.navigate('ClassListScreen', { ClassData: clases })}
+            >
+                <View style={styles.containerList}>
+                    <Text>CLASES</Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+                activeOpacity={0.9}
+                onPress={
+                    () => navigation.navigate('BossListScreen', { BossData: bosses })}
+            >
+                <View style={styles.containerList}>
+                    <Text>BOSSES</Text>
+                </View>
+            </TouchableOpacity>
+        </>
 
-                    ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop:10,
-                            color: 'white'
-
-                        }}>
-                            Class
-                        </Text>
-                    )}
-                />
-            </View>
-        </ScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    containerList: {
+        width: 150,
+        height: 100,
+        backgroundColor: 'white'
+    }
+})
