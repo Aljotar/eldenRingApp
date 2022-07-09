@@ -19,6 +19,9 @@ export const CardBoss = ({ bosses }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
+            onPress= {
+                () => navigation.navigate('BossesSreen',{ BossData: bosses })
+            }
         >
 
             <View style={{
@@ -66,7 +69,7 @@ const styles = StyleSheet.create({
         top: 20,
         left: 10,
         textAlignVertical: 'top',
-        flexWrap: 'wrap',
+        flexWrap: 'wrap'
 
     },
     bossImage: {

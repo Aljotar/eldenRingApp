@@ -11,8 +11,8 @@ import { BossListScreen } from '../screens/BossListScreen';
 export type RootStackParams = {
   HomeScreen: undefined,
   ClassScreen: { ClassData: ClassData },
-  ClassListScreen: undefined,
   BossesSreen: { BossData: BossData },
+  ClassListScreen: undefined,
   BossListScreen: undefined
   
 }
@@ -33,9 +33,9 @@ export const Navigator = () => {
       >
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ClassListScreen" component={ClassListScreen} />
+        <Stack.Screen name="BossListScreen" component={BossListScreen} />
         <Stack.Screen name="ClassScreen" component={ClassScreen} />
         <Stack.Screen name="BossesSreen" component={BossesSreen} />
-        <Stack.Screen name="BossListScreen" component={BossListScreen} />
       </Stack.Navigator>
 
   );
