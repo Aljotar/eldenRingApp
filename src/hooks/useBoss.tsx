@@ -14,11 +14,8 @@ export const useBoss = () => {
         const resp = await classApi.get<BossResponse>(url);
         setBossList(resp.data.data)
         setIsLoading(false)
-        console.log(resp.data.data)
         
     }
-
-    
 
     useEffect(() => {
         loadBoss();

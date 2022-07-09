@@ -22,23 +22,26 @@ export const CardBoss = ({ bosses }: Props) => {
         >
 
             <View style={{
-                width: windowwidth * 0.55
+                width: windowwidth * 0.51
             }}>
+
 
                 <View style={{
                     ...styles.CardContainer,
-                    width: windowwidth * 0.4
+                    width: windowwidth * 0.47
                 }}>
+                    <FadeInImage
+                        uri={bosses.image}
+                        style={styles.bossImage}
+
+                    />
                     <Text style={styles.name}>
                         {bosses.name}
                     </Text>
+
+
+
                 </View>
-
-                <FadeInImage
-                    uri={bosses.image}
-                    style={styles.classImage}
-
-                />
 
             </View>
         </TouchableOpacity>
@@ -47,26 +50,28 @@ export const CardBoss = ({ bosses }: Props) => {
 
 const styles = StyleSheet.create({
     CardContainer: {
-        marginHorizontal: 20,
         backgroundColor: '#242424',
-        width: 160,
+        marginHorizontal: 5,
         height: 100,
         marginBottom: 25,
         borderRadius: 10,
+        flexDirection: 'row',
+        overflow: 'hidden'
 
     },
     name: {
         color: '#FFFFFF',
-        fontSize: 20,
+        fontSize: 9,
         fontWeight: 'bold',
         top: 20,
-        left: 10
+        left: 10,
+        textAlignVertical: 'top',
+        flexWrap: 'wrap',
 
     },
-    classImage: {
+    bossImage: {
         width: 73,
         height: 100,
-        position: 'absolute',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
