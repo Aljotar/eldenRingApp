@@ -7,6 +7,7 @@ import { ArmorData } from '../interface/armorInterface'
 import { BossData } from '../interface/bossInterface'
 import { ClassData } from '../interface/classInterfaces'
 import { CreatureData } from '../interface/creatureInterface'
+import { ItemData } from '../interface/itemsInterface'
 import { NpcData } from '../interface/npcInterface'
 import { ShieldData } from '../interface/shieldInterface'
 
@@ -18,11 +19,12 @@ interface Props {
     creatures: CreatureData,
     npc: NpcData,
     armor: ArmorData,
-    shield: ShieldData
+    shield: ShieldData,
+    item: ItemData
 
 }
 
-export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield }: Props) => {
+export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield, item }: Props) => {
 
 
 
@@ -134,6 +136,19 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield }: Pr
                                 style={styles.card}
                             />
                             <Text style={styles.homeTitle}>SHIELDS</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('ItemListScreen', { ItemData: item })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/item.jpeg')}
+                                style={styles.card}
+                            />
+                            <Text style={styles.homeTitle}>ITEMS</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
