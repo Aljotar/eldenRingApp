@@ -2,17 +2,17 @@ import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native'
-import { CreatureData } from '../interface/creatureInterface'
+import { ArmorData } from '../interface/armorInterface'
 import { FadeInImage } from './FadeInImage'
 
 
 const windowwidth = Dimensions.get('window').width
 
 interface Props {
-    creatures: CreatureData
+    armor: ArmorData
 }
 
-export const Cardcreature = ({ creatures }: Props) => {
+export const CardArmor = ({ armor }: Props) => {
 
     const navigation = useNavigation()
 
@@ -20,7 +20,7 @@ export const Cardcreature = ({ creatures }: Props) => {
         <TouchableOpacity
             activeOpacity={0.9}
             onPress= {
-                () => navigation.navigate('CreatureScreen',{ CreatureData: creatures })
+                () => navigation.navigate('ArmorScreen',{ ArmorData: armor })
             }
         >
 
@@ -34,12 +34,12 @@ export const Cardcreature = ({ creatures }: Props) => {
                     width: windowwidth * 0.47
                 }}>
                     <FadeInImage
-                        uri={creatures.image}
+                        uri={armor.image}
                         style={styles.bossImage}
 
                     />
                     <Text style={styles.name}>
-                        {creatures.name}
+                        {armor.name}
                     </Text>
 
 
@@ -74,6 +74,6 @@ const styles = StyleSheet.create({
     },
     bossImage: {
         width: 73,
-        height: 100
+        height: 100,
     }
 });

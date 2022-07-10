@@ -75,15 +75,5 @@ const styles = StyleSheet.create({
     bossImage: {
         width: 73,
         height: 100,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 6,
-        },
-        shadowOpacity: 0.37,
-        shadowRadius: 7.49,
-
-        elevation: 12,
-        borderRadius: 10
     }
 });

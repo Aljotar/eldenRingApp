@@ -3,6 +3,7 @@ import React from 'react'
 import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
+import { ArmorData } from '../interface/armorInterface'
 import { BossData } from '../interface/bossInterface'
 import { ClassData } from '../interface/classInterfaces'
 import { CreatureData } from '../interface/creatureInterface'
@@ -14,11 +15,12 @@ interface Props {
     clases: ClassData,
     bosses: BossData,
     creatures: CreatureData,
-    npc: NpcData
+    npc: NpcData,
+    armor: ArmorData
 
 }
 
-export const HomeScreen = ({ clases, bosses, creatures, npc}: Props) => {
+export const HomeScreen = ({ clases, bosses, creatures, npc, armor }: Props) => {
 
 
 
@@ -33,78 +35,100 @@ export const HomeScreen = ({ clases, bosses, creatures, npc}: Props) => {
                     height: 400
                 }}
             />
-            <View style={styles.containerCard}>
-                <TouchableOpacity
-                    activeOpacity={0.9}
-                    onPress={
-                        () => navigation.navigate('ClassListScreen', { ClassData: clases })}
-                >
-                    <View>
-                        <Image
-                            source={require('../assets/image/classes.jpeg')}
-                            style={{
-                                width: 180,
-                                height: 100,
-                                marginHorizontal: 10
-                            }}
-                        />
-                        <Text style={styles.homeTitle}>CLASS</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    activeOpacity={0.9}
-                    onPress={
-                        () => navigation.navigate('BossListScreen', { BossData: bosses })}
-                >
-                    <View>
-                        <Image
-                            source={require('../assets/image/bosses.jpeg')}
-                            style={{
-                                width: 180,
-                                height: 100,
-                                marginHorizontal: 10
-                            }}
-                        />
-                        <Text style={styles.homeTitle}>BOSSES</Text>
-                    </View>
-                </TouchableOpacity>
+            <View style={{ alignSelf: 'center' }}>
+                <View style={styles.containerCard}>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('ClassListScreen', { ClassData: clases })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/classes.jpeg')}
+                                style={{
+                                    width: 180,
+                                    height: 100,
+                                    marginHorizontal: 10
+                                }}
+                            />
+                            <Text style={styles.homeTitle}>CLASS</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('BossListScreen', { BossData: bosses })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/bosses.jpeg')}
+                                style={{
+                                    width: 180,
+                                    height: 100,
+                                    marginHorizontal: 10
+                                }}
+                            />
+                            <Text style={styles.homeTitle}>BOSSES</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.containerCard}>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('CreatureListScreen', { CreatureData: creatures })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/creature.jpeg')}
+                                style={{
+                                    width: 180,
+                                    height: 100,
+                                    marginHorizontal: 10
+                                }}
+                            />
+                            <Text style={styles.homeTitle}>CREATURES</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('NpcListScreen', { NpcData: npc })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/npc.jpeg')}
+                                style={{
+                                    width: 180,
+                                    height: 100,
+                                    marginHorizontal: 10
+                                }}
+                            />
+                            <Text style={styles.homeTitle}>NPC</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.containerCard}>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('ArmorListScreen',{ ArmorData: armor  })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/armor.jpeg')}
+                                style={{
+                                    width: 180,
+                                    height: 100,
+                                    marginHorizontal: 10
+                                }}
+                            />
+                            <Text style={styles.homeTitle}>ARMORS</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
             </View>
-            <View style={styles.containerCard}>
-                <TouchableOpacity
-                    activeOpacity={0.9}
-                    onPress={
-                        () => navigation.navigate('CreatureListScreen', { CreatureData: creatures })}
-                >
-                    <View>
-                        <Image
-                            source={require('../assets/image/creature.jpeg')}
-                            style={{
-                                width: 180,
-                                height: 100,
-                                marginHorizontal: 10
-                            }}
-                        />
-                        <Text style={styles.homeTitle}>CREATURES</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    activeOpacity={0.9}
-                    onPress={
-                        () => navigation.navigate('NpcListScreen', { NpcData: npc })}
-                >
-                    <View>
-                        <Image
-                            source={require('../assets/image/npc.jpeg')}
-                            style={{
-                                width: 180,
-                                height: 100,
-                                marginHorizontal: 10
-                            }}
-                        />
-                        <Text style={styles.homeTitle}>NPC</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
+
 
         </>
 
@@ -124,8 +148,8 @@ const styles = StyleSheet.create({
     },
     containerCard: {
         flexDirection: 'row',
-        padding: 5,
-        marginTop: 10
+        padding: 3,
+        marginTop: 10,
 
     }
 })
