@@ -6,17 +6,19 @@ import { ScrollView } from 'react-native-gesture-handler'
 import { BossData } from '../interface/bossInterface'
 import { ClassData } from '../interface/classInterfaces'
 import { CreatureData } from '../interface/creatureInterface'
+import { NpcData } from '../interface/npcInterface'
 
 const windowwidth = Dimensions.get('window').width
 
 interface Props {
     clases: ClassData,
     bosses: BossData,
-    creatures: CreatureData
+    creatures: CreatureData,
+    npc: NpcData
 
 }
 
-export const HomeScreen = ({ clases, bosses, creatures }: Props) => {
+export const HomeScreen = ({ clases, bosses, creatures, npc}: Props) => {
 
 
 
@@ -83,6 +85,23 @@ export const HomeScreen = ({ clases, bosses, creatures }: Props) => {
                             }}
                         />
                         <Text style={styles.homeTitle}>CREATURES</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    activeOpacity={0.9}
+                    onPress={
+                        () => navigation.navigate('NpcListScreen', { NpcData: npc })}
+                >
+                    <View>
+                        <Image
+                            source={require('../assets/image/npc.jpeg')}
+                            style={{
+                                width: 180,
+                                height: 100,
+                                marginHorizontal: 10
+                            }}
+                        />
+                        <Text style={styles.homeTitle}>NPC</Text>
                     </View>
                 </TouchableOpacity>
             </View>

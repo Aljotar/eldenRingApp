@@ -10,15 +10,20 @@ import { BossListScreen } from '../screens/BossListScreen';
 import { CreatureListScreen } from '../screens/CreatureListScreen';
 import { CreatureScreen } from '../screens/CreatureScreen';
 import { CreatureData } from '../interface/creatureInterface';
+import { NpcListScreen } from '../screens/NpcListScreen';
+import { NpcScreen } from '../screens/NpcScreen';
+import { NpcData } from '../interface/npcInterface';
 
 export type RootStackParams = {
   HomeScreen: undefined,
   ClassScreen: { ClassData: ClassData },
   BossesSreen: { BossData: BossData },
   CreatureScreen: { CreatureData: CreatureData },
+  NpcScreen: { NpcData: NpcData} ,
   ClassListScreen: undefined,
   BossListScreen: undefined,
   CreatureListScreen: undefined,
+  NpcListScreen: undefined
 
   
 }
@@ -41,9 +46,13 @@ export const Navigator = () => {
         <Stack.Screen name="ClassListScreen" component={ClassListScreen} />
         <Stack.Screen name="BossListScreen" component={BossListScreen} />
         <Stack.Screen name="CreatureListScreen" component={CreatureListScreen} />
+        <Stack.Screen name="NpcListScreen" component={NpcListScreen} />
+
         <Stack.Screen name="ClassScreen" component={ClassScreen} />
         <Stack.Screen name="BossesSreen" component={BossesSreen} />
         <Stack.Screen name="CreatureScreen" component={CreatureScreen} />
+        <Stack.Screen name="NpcScreen" component={NpcScreen} />
+
       </Stack.Navigator>
 
   );
