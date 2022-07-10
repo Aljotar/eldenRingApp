@@ -45,11 +45,7 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor }: Props) => 
                         <View>
                             <Image
                                 source={require('../assets/image/classes.jpeg')}
-                                style={{
-                                    width: 180,
-                                    height: 100,
-                                    marginHorizontal: 10
-                                }}
+                                style={styles.card}
                             />
                             <Text style={styles.homeTitle}>CLASS</Text>
                         </View>
@@ -62,11 +58,7 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor }: Props) => 
                         <View>
                             <Image
                                 source={require('../assets/image/bosses.jpeg')}
-                                style={{
-                                    width: 180,
-                                    height: 100,
-                                    marginHorizontal: 10
-                                }}
+                                style={styles.card}
                             />
                             <Text style={styles.homeTitle}>BOSSES</Text>
                         </View>
@@ -81,11 +73,7 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor }: Props) => 
                         <View>
                             <Image
                                 source={require('../assets/image/creature.jpeg')}
-                                style={{
-                                    width: 180,
-                                    height: 100,
-                                    marginHorizontal: 10
-                                }}
+                                style={styles.card}
                             />
                             <Text style={styles.homeTitle}>CREATURES</Text>
                         </View>
@@ -98,11 +86,7 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor }: Props) => 
                         <View>
                             <Image
                                 source={require('../assets/image/npc.jpeg')}
-                                style={{
-                                    width: 180,
-                                    height: 100,
-                                    marginHorizontal: 10
-                                }}
+                                style={styles.card}
                             />
                             <Text style={styles.homeTitle}>NPC</Text>
                         </View>
@@ -112,16 +96,12 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor }: Props) => 
                     <TouchableOpacity
                         activeOpacity={0.9}
                         onPress={
-                            () => navigation.navigate('ArmorListScreen',{ ArmorData: armor  })}
+                            () => navigation.navigate('ArmorListScreen', { ArmorData: armor })}
                     >
                         <View>
                             <Image
                                 source={require('../assets/image/armor.jpeg')}
-                                style={{
-                                    width: 180,
-                                    height: 100,
-                                    marginHorizontal: 10
-                                }}
+                                style={styles.card}
                             />
                             <Text style={styles.homeTitle}>ARMORS</Text>
                         </View>
@@ -148,6 +128,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         padding: 3,
         marginTop: 10,
-
+    },
+    card: {
+        width: 180,
+        height: 100,
+        marginHorizontal: 10,
+        borderRadius: 10
     }
 })

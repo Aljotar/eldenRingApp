@@ -12,32 +12,54 @@ export const ArmorScreen = ({ navigation, route }: Props) => {
 
     const { ArmorData } = route.params;
 
-    const { name, image, description, category, dmgNegation, resistance, weight} = ArmorData;
+    const { name, image, description, category, dmgNegation, resistance, weight } = ArmorData;
 
+    const armorNameArray = dmgNegation.map(dmgNegation => dmgNegation.name)
+
+    const armorAmountArray = dmgNegation.map(dmgNegation => dmgNegation.amount)
 
     return (
         <>
             <View>
-                <Text style={styles.bossName}>
-                    {name}
-                </Text>
                 <FadeInImage
                     uri={image}
-                    style={styles.bossImage}
+                    style={styles.armorImage}
 
                 />
+                <Text style={styles.armorName}>
+                    {name}
+                </Text>
+
                 <Text style={styles.bossDescription}>{description}</Text>
             </View>
 
 
             <View style={styles.bossBody}>
-                <Text style={{ fontSize: 25, color: '#FFFFFF', fontWeight: "500", padding: 20 }}>INFORMATION</Text>
+                <Text style={{ fontSize: 23, color: '#FFFFFF', fontWeight: "400", padding: 10 }}>INFORMATION</Text>
                 <View style={{ left: 20 }}>
-                    <View style={{flexDirection: 'row'}}>
-                        <Icon name='heart-outline' size={25} color={'white'} /><Text style={styles.bossStats}>HP:  {category}</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Icon name='shield-outline' size={25} color={'white'} /><Text style={styles.armorStats}>CATEGORY:  {category}</Text>
                     </View>
-                    <View style={styles.dropBoss}>
-                        <Icon name='location-outline' size={25} color={'white'} /><Text style={styles.bossStats}>LOCATION:  " {weight} "</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Icon name='barbell-outline' size={25} color={'white'} /><Text style={styles.armorStats}>WEIGTH:   {weight}</Text>
+                    </View>
+                    <Text style={{ fontWeight: '500', color: '#FFFFFF', marginTop: 20 }}>DAMAGE NEGATION:</Text>
+                    <View style={{flexDirection: 'row', left: 150, marginTop: 10}}>
+                        <View>
+                            {
+                                armorNameArray.map(function (armorNameArray) {
+                                    return <Text style={styles.armorStats}>{armorNameArray} :</Text>
+                                })
+
+                            }
+                        </View>
+                        <View>
+                            {
+                                armorAmountArray.map(function (armorAmountArray) {
+                                    return <Text style={styles.armorStats}>{armorAmountArray}</Text>
+                                })
+                            }
+                        </View>
                     </View>
                 </View>
             </View>
@@ -46,21 +68,19 @@ export const ArmorScreen = ({ navigation, route }: Props) => {
 }
 
 const styles = StyleSheet.create({
-    bossName: {
+    armorName: {
         color: '#F8F8F8',
         fontSize: 20,
         alignSelf: 'center',
-        position: 'absolute',
         alignItems: 'center',
-        top: 100,
-        left: 200,
         fontWeight: '500',
+        marginBottom: 20
     },
-    bossImage: {
+    armorImage: {
         width: 150,
         height: 230,
-        borderRadius: 10,
-        margin: 10
+        margin: 10,
+        alignSelf: 'center'
     },
     bossDescription: {
         color: '#E9E9E9',
@@ -83,15 +103,11 @@ const styles = StyleSheet.create({
         elevation: 2,
         paddingBottom: 50
     },
-    bossStats: {
+    armorStats: {
         color: 'white',
-        marginLeft: 15,
+        marginLeft: 10,
         fontWeight: '500',
         top: 3
     },
-    dropBoss: {
-        flexDirection: 'row', 
-        marginTop: 15,
-        top: 3,
-    }
+
 })
