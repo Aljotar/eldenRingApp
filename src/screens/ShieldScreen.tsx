@@ -6,14 +6,14 @@ import { RootStackParams } from '../navigator/Navigator'
 import Icon from 'react-native-vector-icons/Ionicons';
 import { ScrollView } from 'react-native-gesture-handler'
 
-interface Props extends StackScreenProps<RootStackParams, 'WeaponScreen'> { };
+interface Props extends StackScreenProps<RootStackParams, 'ShieldScreen'> { };
 
+export const ShieldScreen = ({ navigation, route }: Props) => {
 
-export const WeaponScreen = ({ navigation, route }: Props) => {
+    const { ShieldData } = route.params
 
-    const { WeaponData } = route.params;
+    const { name, image, description, attack, defence, scalesWith, requiredAttributes, category, weight } = ShieldData;
 
-    const { name, image, description, attack, defence, scalesWith, requiredAttributes, category, weight } = WeaponData;
 
     const attackNameArray = attack.map(attack => attack.name)
     const attackAmountArray = attack.map(attack => attack.amount)
@@ -69,7 +69,7 @@ export const WeaponScreen = ({ navigation, route }: Props) => {
                             }
                         </View>
                     </View>
-                    <Text style={{ fontWeight: '500', color: '#FFFFFF', marginTop: 20 }}>DAMAGE NEGATION:</Text>
+                    <Text style={{ fontWeight: '500', color: '#FFFFFF', marginTop: 20 }}>ATTACK:</Text>
                     <View style={{ flexDirection: 'row', left: 150, marginTop: 10 }}>
                         <View>
                             {

@@ -8,6 +8,7 @@ import { BossData } from '../interface/bossInterface'
 import { ClassData } from '../interface/classInterfaces'
 import { CreatureData } from '../interface/creatureInterface'
 import { NpcData } from '../interface/npcInterface'
+import { ShieldData } from '../interface/shieldInterface'
 
 const windowwidth = Dimensions.get('window').width
 
@@ -16,11 +17,12 @@ interface Props {
     bosses: BossData,
     creatures: CreatureData,
     npc: NpcData,
-    armor: ArmorData
+    armor: ArmorData,
+    shield: ShieldData
 
 }
 
-export const HomeScreen = ({ clases, bosses, creatures, npc, armor }: Props) => {
+export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield }: Props) => {
 
 
 
@@ -117,6 +119,21 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor }: Props) => 
                                 style={styles.card}
                             />
                             <Text style={styles.homeTitle}>WEAPONS</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.containerCard}>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('ShieldListScreen', { ShieldData: shield })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/shield.jpeg')}
+                                style={styles.card}
+                            />
+                            <Text style={styles.homeTitle}>SHIELDS</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
