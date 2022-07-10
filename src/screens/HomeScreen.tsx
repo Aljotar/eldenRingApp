@@ -106,6 +106,19 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor }: Props) => 
                             <Text style={styles.homeTitle}>ARMORS</Text>
                         </View>
                     </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('WeaponListScreen', { ArmorData: armor })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/weapon.jpeg')}
+                                style={styles.card}
+                            />
+                            <Text style={styles.homeTitle}>WEAPONS</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
             </View>
         </ScrollView>

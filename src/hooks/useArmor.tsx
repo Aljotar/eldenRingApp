@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { classApi } from '../api/consultApi';
 import { ArmorData, ArmorResponse } from '../interface/armorInterface';
-import { BossData, BossResponse } from '../interface/bossInterface';
 
 export const useArmor = () => {
 
