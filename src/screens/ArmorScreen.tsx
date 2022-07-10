@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { FadeInImage } from '../components/FadeInImage'
 import { RootStackParams } from '../navigator/Navigator'
 import Icon from 'react-native-vector-icons/Ionicons';
+import { ScrollView } from 'react-native-gesture-handler'
 
 interface Props extends StackScreenProps<RootStackParams, 'ArmorScreen'> { };
 
@@ -18,8 +19,12 @@ export const ArmorScreen = ({ navigation, route }: Props) => {
 
     const armorAmountArray = dmgNegation.map(dmgNegation => dmgNegation.amount)
 
+    const armorResistenceNameArray = resistance.map(resistance => resistance.name)
+
+    const armorResistenceAmountArray = resistance.map(armorResistenceAmountArray => armorResistenceAmountArray.amount)
+
     return (
-        <>
+        <ScrollView>
             <View>
                 <FadeInImage
                     uri={image}
@@ -61,9 +66,27 @@ export const ArmorScreen = ({ navigation, route }: Props) => {
                             }
                         </View>
                     </View>
+                    <Text style={{ fontWeight: '500', color: '#FFFFFF', marginTop: 20 }}>RESISTENCE:</Text>
+                    <View style={{flexDirection: 'row', left: 150, marginTop: 10}}>
+                        <View>
+                            {
+                                armorResistenceNameArray.map(function (armorResistenceNameArray) {
+                                    return <Text style={styles.armorStats}>{armorResistenceNameArray} :</Text>
+                                })
+
+                            }
+                        </View>
+                        <View>
+                            {
+                                armorResistenceAmountArray.map(function (armorResistenceAmountArray) {
+                                    return <Text style={styles.armorStats}>{armorResistenceAmountArray}</Text>
+                                })
+                            }
+                        </View>
+                    </View>
                 </View>
             </View>
-        </>
+        </ScrollView>
     )
 }
 
