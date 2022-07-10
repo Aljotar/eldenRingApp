@@ -25,7 +25,9 @@ export const useArmor = () => {
 
     return {
         armorList,
-        isLoading
+        isLoading,
+        pages,
+        setPages
     }
 
 }

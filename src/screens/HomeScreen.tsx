@@ -27,7 +27,7 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor }: Props) => 
     const navigation = useNavigation()
 
     return (
-        <>
+        <ScrollView>
             <Image
                 source={require('../assets/image/eldenRing.jpeg')}
                 style={{
@@ -128,22 +128,20 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor }: Props) => 
                     </TouchableOpacity>
                 </View>
             </View>
-
-
-        </>
+        </ScrollView>
 
     )
 }
 
 const styles = StyleSheet.create({
     homeTitle: {
-        fontWeight: 'bold',
-        color: 'white',
+        fontWeight: '500',
+        color: '#FFFFFF',
         position: 'absolute',
         alignSelf: 'center',
         top: 40,
-        backgroundColor: 'black',
-        opacity: 0.8,
+        backgroundColor: '#858383',
+        opacity: 0.7,
         fontSize: 15
     },
     containerCard: {
