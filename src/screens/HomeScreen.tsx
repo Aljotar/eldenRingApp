@@ -3,6 +3,7 @@ import React from 'react'
 import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
+import { AmmosData } from '../interface/ammosInterface'
 import { ArmorData } from '../interface/armorInterface'
 import { BossData } from '../interface/bossInterface'
 import { ClassData } from '../interface/classInterfaces'
@@ -20,11 +21,12 @@ interface Props {
     npc: NpcData,
     armor: ArmorData,
     shield: ShieldData,
-    item: ItemData
+    item: ItemData,
+    ammos: AmmosData
 
 }
 
-export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield, item }: Props) => {
+export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield, item, ammos }: Props) => {
 
 
 
@@ -149,6 +151,21 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield, item
                                 style={styles.card}
                             />
                             <Text style={styles.homeTitle}>ITEMS</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.containerCard}>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('AmmosListScreen', { AmmosData: ammos })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/ammos.jpeg')}
+                                style={styles.card}
+                            />
+                            <Text style={styles.homeTitle}>AMMOS</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
