@@ -11,6 +11,7 @@ import { CreatureData } from '../interface/creatureInterface'
 import { ItemData } from '../interface/itemsInterface'
 import { NpcData } from '../interface/npcInterface'
 import { ShieldData } from '../interface/shieldInterface'
+import { TalismanData } from '../interface/talismanInterface'
 
 const windowwidth = Dimensions.get('window').width
 
@@ -22,11 +23,12 @@ interface Props {
     armor: ArmorData,
     shield: ShieldData,
     item: ItemData,
-    ammos: AmmosData
+    ammos: AmmosData,
+    talisman: TalismanData
 
 }
 
-export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield, item, ammos }: Props) => {
+export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield, item, ammos, talisman }: Props) => {
 
 
 
@@ -166,6 +168,19 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield, item
                                 style={styles.card}
                             />
                             <Text style={styles.homeTitle}>AMMOS</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('TalismanListScreen', { TalismanData: talisman })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/talisman.jpeg')}
+                                style={styles.card}
+                            />
+                            <Text style={styles.homeTitle}>TALISMANS</Text>
                         </View>
                     </TouchableOpacity>
                 </View>

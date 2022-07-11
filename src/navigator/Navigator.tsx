@@ -28,6 +28,9 @@ import { ItemListScreen } from '../screens/ItemListScreen';
 import { AmmosScreen } from '../screens/AmmosScreen';
 import { AmmosData } from '../interface/ammosInterface';
 import { AmmosListScreen } from '../screens/AmmosListScreen';
+import { TalismanScreen } from '../screens/TalismanScreen';
+import { TalismanData } from '../interface/talismanInterface';
+import { TalismanListScreen } from '../screens/TalismanListScreen';
 
 export type RootStackParams = {
   HomeScreen: undefined,
@@ -40,6 +43,7 @@ export type RootStackParams = {
   ShieldScreen: { ShieldData: ShieldData },
   ItemScreen: { ItemData: ItemData },
   AmmosScreen: {  AmmosData: AmmosData },
+  TalismanScreen: { TalismanData: TalismanData}
   ClassListScreen: undefined,
   BossListScreen: undefined,
   CreatureListScreen: undefined,
@@ -47,7 +51,10 @@ export type RootStackParams = {
   ArmorListScreen: undefined,
   WeaponListScreen: undefined,
   ShieldListScreen: undefined,
-  ItemListScreen: undefined
+  ItemListScreen: undefined,
+  AmmosListScreen: undefined,
+  TalismanListScreen: undefined
+
 
   
 }
@@ -76,6 +83,7 @@ export const Navigator = () => {
         <Stack.Screen name="ShieldListScreen" component={ShieldListScreen} />
         <Stack.Screen name="ItemListScreen" component={ItemListScreen} />
         <Stack.Screen name="AmmosListScreen" component={AmmosListScreen} />
+        <Stack.Screen name="TalismanListScreen" component={TalismanListScreen} />
 
         <Stack.Screen name="ClassScreen" component={ClassScreen} />
         <Stack.Screen name="BossesSreen" component={BossesSreen} />
@@ -86,6 +94,7 @@ export const Navigator = () => {
         <Stack.Screen name="ShieldScreen" component={ShieldScreen} />
         <Stack.Screen name="ItemScreen" component={ItemScreen} />
         <Stack.Screen name="AmmosScreen" component={AmmosScreen} />
+        <Stack.Screen name="TalismanScreen" component={TalismanScreen} />
 
       </Stack.Navigator>
 
