@@ -5,12 +5,15 @@ import { TouchableOpacity } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { AmmosData } from '../interface/ammosInterface'
 import { ArmorData } from '../interface/armorInterface'
+import { AshesData } from '../interface/ashesInterface'
 import { BossData } from '../interface/bossInterface'
 import { ClassData } from '../interface/classInterfaces'
 import { CreatureData } from '../interface/creatureInterface'
+import { IncantationData } from '../interface/incantationsInterface'
 import { ItemData } from '../interface/itemsInterface'
 import { NpcData } from '../interface/npcInterface'
 import { ShieldData } from '../interface/shieldInterface'
+import { SorceriesData } from '../interface/sorceriesInterface'
 import { SpiritsData } from '../interface/spiritsInterface'
 import { TalismanData } from '../interface/talismanInterface'
 
@@ -26,11 +29,14 @@ interface Props {
     item: ItemData,
     ammos: AmmosData,
     talisman: TalismanData,
-    spirits: SpiritsData
+    spirits: SpiritsData,
+    ashes: AshesData,
+    incantation: IncantationData,
+    sorceries: SorceriesData
 
 }
 
-export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield, item, ammos, talisman, spirits }: Props) => {
+export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield, item, ammos, talisman, spirits, ashes, incantation, sorceries }: Props) => {
 
 
 
@@ -198,6 +204,47 @@ export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield, item
                                 style={styles.card}
                             />
                             <Text style={styles.homeTitle}>SPIRITS</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('AshesListScreen', { AshesData: ashes })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/ashes.jpeg')}
+                                style={styles.card}
+                            />
+                            <Text style={styles.homeTitle}>ASHES</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.containerCard}>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('IncantationListScreen', { IncantationData: incantation })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/incantation.jpeg')}
+                                style={styles.card}
+                            />
+                            <Text style={styles.homeTitle}>INCANTATIONS</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={
+                            () => navigation.navigate('SorceriesListScreen', { SorceriesData: sorceries })}
+                    >
+                        <View>
+                            <Image
+                                source={require('../assets/image/sorceries.jpeg')}
+                                style={styles.card}
+                            />
+                            <Text style={styles.homeTitle}>SORCERIES</Text>
                         </View>
                     </TouchableOpacity>
                 </View>

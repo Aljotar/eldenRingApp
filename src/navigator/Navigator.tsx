@@ -34,6 +34,15 @@ import { TalismanListScreen } from '../screens/TalismanListScreen';
 import { SpiritsScreen } from '../screens/SpiritsScreen';
 import { SpiritsData } from '../interface/spiritsInterface';
 import { SpiritsListScreen } from '../screens/SpiritisListScreen';
+import { AshesListScreen } from '../screens/AshesListScreen';
+import { AshesData } from '../interface/ashesInterface';
+import { AshesScreen } from '../screens/AshesScreen';
+import { IncantationScreen } from '../screens/IncantationScreen';
+import { IncantationData } from '../interface/incantationsInterface';
+import { IncantationListScreen } from '../screens/IncantationListScreen';
+import { SorceriesScreen } from '../screens/SorceriesSceen';
+import { SorceriesData } from '../interface/sorceriesInterface';
+import { SorceriesListScreen } from '../screens/SorceriesListScreen';
 
 export type RootStackParams = {
   HomeScreen: undefined,
@@ -46,8 +55,11 @@ export type RootStackParams = {
   ShieldScreen: { ShieldData: ShieldData },
   ItemScreen: { ItemData: ItemData },
   AmmosScreen: {  AmmosData: AmmosData },
-  TalismanScreen: { TalismanData: TalismanData}
-  SpiritsScreen: { SpiritsData: SpiritsData  }
+  TalismanScreen: { TalismanData: TalismanData},
+  SpiritsScreen: { SpiritsData: SpiritsData  },
+  AshesScreen: {  AshesData : AshesData },
+  IncantationScreen: { IncantationData: IncantationData },
+  SorceriesScreen: { SorceriesData: SorceriesData },
   ClassListScreen: undefined,
   BossListScreen: undefined,
   CreatureListScreen: undefined,
@@ -59,6 +71,9 @@ export type RootStackParams = {
   AmmosListScreen: undefined,
   TalismanListScreen: undefined,
   SpiritsListScreen: undefined,
+  AshesListScreen: undefined,
+  IncantationListScreen: undefined,
+  SorceriesListScreen: undefined
 
 
   
@@ -90,6 +105,9 @@ export const Navigator = () => {
         <Stack.Screen name="AmmosListScreen" component={AmmosListScreen} />
         <Stack.Screen name="TalismanListScreen" component={TalismanListScreen} />
         <Stack.Screen name="SpiritsListScreen" component={SpiritsListScreen} />
+        <Stack.Screen name="AshesListScreen" component={AshesListScreen} />
+        <Stack.Screen name="IncantationListScreen" component={IncantationListScreen} />
+        <Stack.Screen name="SorceriesListScreen" component={SorceriesListScreen} />
 
         <Stack.Screen name="ClassScreen" component={ClassScreen} />
         <Stack.Screen name="BossesSreen" component={BossesSreen} />
@@ -102,6 +120,9 @@ export const Navigator = () => {
         <Stack.Screen name="AmmosScreen" component={AmmosScreen} />
         <Stack.Screen name="TalismanScreen" component={TalismanScreen} />
         <Stack.Screen name="SpiritsScreen" component={SpiritsScreen} />
+        <Stack.Screen name="AshesScreen" component={AshesScreen} />
+        <Stack.Screen name="IncantationScreen" component={IncantationScreen} />
+        <Stack.Screen name="SorceriesScreen" component={SorceriesScreen} />
 
       </Stack.Navigator>
 
