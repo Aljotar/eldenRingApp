@@ -1,13 +1,10 @@
-import { ServerContainer } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react'
-import { FlatList, Image, Text, View } from 'react-native'
+import { FlatList, Text, View } from 'react-native'
 import { ScrollView } from 'react-native';
 import { CardClass } from '../components/CardClass';
 import { SearchInfo } from '../components/SearchInfo';
 import { useClass } from '../hooks/useClass'
 import { ClassData } from '../interface/classInterfaces';
-
-
 
 export const ClassListScreen = () => {
 
@@ -17,10 +14,9 @@ export const ClassListScreen = () => {
 
     const [filterInfo, setFilterInfo] = useState<ClassData[]>([])
 
-
     useEffect(() => {
         
-        if ( term.length ===0 ){
+        if ( term.length === 0 ){
             return setFilterInfo(classList);
 
         }
@@ -30,7 +26,7 @@ export const ClassListScreen = () => {
                             .includes( term.toLocaleLowerCase() ))
         );
 
-    }, [term])
+    }, [term,classList])
     
     return (
         <ScrollView>

@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, FlatList, Text, View } from 'react-native'
 import { ScrollView } from 'react-native';
 import { CardArmor } from '../components/CardArmor';
+import { SearchInfo } from '../components/SearchInfo';
 import { useArmor } from '../hooks/useArmor';
+import { ArmorData } from '../interface/armorInterface';
 
 export const ArmorListScreen = () => {
 
     const { armorList, pages, setPages } = useArmor();
+
+    const [term, setTerm] = useState('')
+
+    const [filterInfo, setFilterInfo] = useState<ArmorData[]>([])
+
+    useEffect(() => {
+        
+        if ( term.length === 0 ){
+            return setFilterInfo(armorList);
+
+        }
+
+        setFilterInfo(
+            armorList.filter(info => info.name.toLocaleLowerCase()
+                            .includes( term.toLocaleLowerCase() ))
+        );
+
+    }, [term,armorList])
 
     const clickPagina = () => {
         setPages(pages - 1);
@@ -16,11 +36,14 @@ export const ArmorListScreen = () => {
 
     return (
         <ScrollView>
+            <SearchInfo
+                onDebounce={(value) => setTerm(value)}
+            />
             <View style={{
                 alignItems: 'center'
             }}>
                 <FlatList
-                    data={armorList}
+                    data={filterInfo}
                     keyExtractor={(clase) => clase.id}
                     numColumns={2}
                     showsVerticalScrollIndicator={false}

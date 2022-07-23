@@ -1,20 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FlatList, Image, Text, View } from 'react-native'
 import { ScrollView } from 'react-native';
 import { CardShield } from '../components/CardShield';
+import { SearchInfo } from '../components/SearchInfo';
 import { useShield } from '../hooks/useShield';
+import { ShieldData } from '../interface/shieldInterface';
 
 export const ShieldListScreen = () => {
 
     const { shieldList } = useShield();
 
+    const [term, setTerm] = useState('')
+
+    const [filterInfo, setFilterInfo] = useState<ShieldData[]>([])
+
+    useEffect(() => {
+        
+        if ( term.length === 0 ){
+            return setFilterInfo(shieldList);
+
+        }
+
+        setFilterInfo(
+            shieldList.filter(info => info.name.toLocaleLowerCase()
+                            .includes( term.toLocaleLowerCase() ))
+        );
+
+    }, [term,shieldList])
+
     return (
         <ScrollView>
+            <SearchInfo
+                onDebounce={(value) => setTerm(value)}
+            />
             <View style={{
                 alignItems: 'center'
             }}>
                 <FlatList
-                    data={shieldList}
+                    data={filterInfo}
                     keyExtractor={(clase) => clase.id}
                     numColumns={2}
                     showsVerticalScrollIndicator={false}
@@ -27,7 +50,7 @@ export const ShieldListScreen = () => {
                             fontSize: 30,
                             fontWeight: 'bold',
                             marginBottom: 50,
-                            marginTop:10,
+                            marginTop: 10,
                             color: 'white'
 
                         }}>

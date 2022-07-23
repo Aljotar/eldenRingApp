@@ -1,25 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FlatList, Image, Text, View } from 'react-native'
 import { ScrollView } from 'react-native';
 import { CardSorceries } from '../components/CardSorceries';
+import { SearchInfo } from '../components/SearchInfo';
 import { useSorceries } from '../hooks/useSorceries';
+import { SorceriesData } from '../interface/sorceriesInterface';
 
 export const SorceriesListScreen = () => {
 
     const { sorceriesList } = useSorceries();
 
+    const [term, setTerm] = useState('')
+
+    const [filterInfo, setFilterInfo] = useState<SorceriesData[]>([])
+
+    useEffect(() => {
+        
+        if ( term.length === 0 ){
+            return setFilterInfo(sorceriesList);
+
+        }
+
+        setFilterInfo(
+            sorceriesList.filter(info => info.name.toLocaleLowerCase()
+                            .includes( term.toLocaleLowerCase() ))
+        );
+
+    }, [term,sorceriesList])
+
     return (
         <ScrollView>
+            <SearchInfo
+                onDebounce={(value) => setTerm(value)}
+            />
             <View style={{
                 alignItems: 'center'
             }}>
                 <FlatList
-                    data={sorceriesList}
+                    data={filterInfo}
                     keyExtractor={(clase) => clase.id}
                     numColumns={2}
                     showsVerticalScrollIndicator={false}
                     renderItem={({ item }) => (
-                       <CardSorceries sorceries={item} />
+                        <CardSorceries sorceries={item} />
                     )}
 
                     ListHeaderComponent={(
@@ -27,7 +50,7 @@ export const SorceriesListScreen = () => {
                             fontSize: 30,
                             fontWeight: 'bold',
                             marginBottom: 50,
-                            marginTop:10,
+                            marginTop: 10,
                             color: 'white'
 
                         }}>

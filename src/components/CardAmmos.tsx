@@ -3,7 +3,6 @@ import React from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native'
 import { AmmosData } from '../interface/ammosInterface'
-import { ArmorData } from '../interface/armorInterface'
 import { FadeInImage } from './FadeInImage'
 
 

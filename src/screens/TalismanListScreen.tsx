@@ -1,27 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FlatList, Image, Text, View } from 'react-native'
 import { ScrollView } from 'react-native';
-import { CardNpc } from '../components/CardNpc';
 import { CardTalisman } from '../components/CardTalisman';
-import { useNpc } from '../hooks/useNpc';
+import { SearchInfo } from '../components/SearchInfo';
 import { useTalisman } from '../hooks/useTalisman';
+import { TalismanData } from '../interface/talismanInterface';
 
 export const TalismanListScreen = () => {
 
     const { talismanList } = useTalisman();
 
+    const [term, setTerm] = useState('')
+
+    const [filterInfo, setFilterInfo] = useState<TalismanData[]>([])
+
+    useEffect(() => {
+        
+        if ( term.length === 0 ){
+            return setFilterInfo(talismanList);
+
+        }
+
+        setFilterInfo(
+            talismanList.filter(info => info.name.toLocaleLowerCase()
+                            .includes( term.toLocaleLowerCase() ))
+        );
+
+    }, [term,talismanList])
+
     return (
         <ScrollView>
+
+            <SearchInfo
+                onDebounce={(value) => setTerm(value)}
+            />
+
             <View style={{
                 alignItems: 'center'
             }}>
                 <FlatList
-                    data={talismanList}
+                    data={filterInfo}
                     keyExtractor={(clase) => clase.id}
                     numColumns={2}
                     showsVerticalScrollIndicator={false}
                     renderItem={({ item }) => (
-                        <CardTalisman talisman={item}/>
+                        <CardTalisman talisman={item} />
                     )}
 
                     ListHeaderComponent={(
@@ -29,7 +52,7 @@ export const TalismanListScreen = () => {
                             fontSize: 30,
                             fontWeight: 'bold',
                             marginBottom: 50,
-                            marginTop:10,
+                            marginTop: 10,
                             color: 'white'
 
                         }}>

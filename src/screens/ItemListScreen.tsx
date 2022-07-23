@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, FlatList, Image, Text, View } from 'react-native'
 import { ScrollView } from 'react-native';
 import { CardItem } from '../components/CardItem';
+import { SearchInfo } from '../components/SearchInfo';
 import { useItem } from '../hooks/useItem';
+import { ItemData } from '../interface/itemsInterface';
 
 export const ItemListScreen = () => {
 
     const { itemList, pages, setPages } = useItem();
+
+    const [term, setTerm] = useState('')
+
+    const [filterInfo, setFilterInfo] = useState<ItemData[]>([])
+
+    useEffect(() => {
+        
+        if ( term.length === 0 ){
+            return setFilterInfo(itemList);
+
+        }
+
+        setFilterInfo(
+            itemList.filter(info => info.name.toLocaleLowerCase()
+                            .includes( term.toLocaleLowerCase() ))
+        );
+
+    }, [term,itemList])
 
     const clickPagina = () => {
         setPages(pages - 1);
@@ -14,13 +34,19 @@ export const ItemListScreen = () => {
 
     const anteriorDisabled = pages === 0;
 
+
     return (
         <ScrollView>
+
+            <SearchInfo
+                onDebounce={(value) => setTerm(value)}
+            />
+
             <View style={{
                 alignItems: 'center'
             }}>
                 <FlatList
-                    data={itemList}
+                    data={filterInfo}
                     keyExtractor={(clase) => clase.id}
                     numColumns={2}
                     showsVerticalScrollIndicator={false}
@@ -33,7 +59,7 @@ export const ItemListScreen = () => {
                             fontSize: 30,
                             fontWeight: 'bold',
                             marginBottom: 50,
-                            marginTop:10,
+                            marginTop: 10,
                             color: 'white'
 
                         }}>
@@ -41,7 +67,7 @@ export const ItemListScreen = () => {
                         </Text>
                     )}
                 />
-                                <View style={{ flexDirection: 'row' }}>
+                <View style={{ flexDirection: 'row' }}>
                     <View style={{ marginHorizontal: 10 }}>
                         <Button
                             onPress={clickPagina}

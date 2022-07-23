@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, FlatList, Text, View } from 'react-native'
 import { ScrollView } from 'react-native';
 import { CardWeapon } from '../components/CardWeapon';
+import { SearchInfo } from '../components/SearchInfo';
 import { useWeapons } from '../hooks/useWeapons';
+import { WeaponData } from '../interface/weaponInterface';
 
 export const WeaponListScreen = () => {
 
     const { weaponList, pages, setPages } = useWeapons();
+
+    const [term, setTerm] = useState('')
+
+    const [filterInfo, setFilterInfo] = useState<WeaponData[]>([])
+
+    useEffect(() => {
+        
+        if ( term.length === 0 ){
+            return setFilterInfo(weaponList);
+
+        }
+
+        setFilterInfo(
+            weaponList.filter(info => info.name.toLocaleLowerCase()
+                            .includes( term.toLocaleLowerCase() ))
+        );
+
+    }, [term,weaponList])
 
     const clickPagina = () => {
         setPages(pages - 1);
@@ -16,16 +36,19 @@ export const WeaponListScreen = () => {
 
     return (
         <ScrollView>
+            <SearchInfo
+                onDebounce={(value) => setTerm(value)}
+            />
             <View style={{
                 alignItems: 'center'
             }}>
                 <FlatList
-                    data={weaponList}
+                    data={filterInfo}
                     keyExtractor={(clase) => clase.id}
                     numColumns={2}
                     showsVerticalScrollIndicator={false}
                     renderItem={({ item }) => (
-                        <CardWeapon  weapon={item} />
+                        <CardWeapon weapon={item} />
                     )}
 
                     ListHeaderComponent={(

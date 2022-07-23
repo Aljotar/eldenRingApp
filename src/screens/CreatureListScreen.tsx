@@ -1,20 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FlatList, Image, Text, View } from 'react-native'
 import { ScrollView } from 'react-native';
 import { Cardcreature } from '../components/CardCreature';
+import { SearchInfo } from '../components/SearchInfo';
 import { useCreature } from '../hooks/useCreature';
+import { CreatureData } from '../interface/creatureInterface';
 
 export const CreatureListScreen = () => {
 
     const { creatureList } = useCreature();
 
+    const [term, setTerm] = useState('')
+
+    const [filterInfo, setFilterInfo] = useState<CreatureData[]>([])
+
+    useEffect(() => {
+        
+        if ( term.length === 0 ){
+            return setFilterInfo(creatureList);
+
+        }
+
+        setFilterInfo(
+            creatureList.filter(info => info.name.toLocaleLowerCase()
+                            .includes( term.toLocaleLowerCase() ))
+        );
+
+    }, [term,creatureList])
+
     return (
         <ScrollView>
+
+            <SearchInfo
+                onDebounce={(value) => setTerm(value)}
+            />
             <View style={{
                 alignItems: 'center'
             }}>
                 <FlatList
-                    data={creatureList}
+                    data={filterInfo}
                     keyExtractor={(clase) => clase.id}
                     numColumns={2}
                     showsVerticalScrollIndicator={false}
@@ -27,7 +51,7 @@ export const CreatureListScreen = () => {
                             fontSize: 30,
                             fontWeight: 'bold',
                             marginBottom: 50,
-                            marginTop:10,
+                            marginTop: 10,
                             color: 'white'
 
                         }}>
