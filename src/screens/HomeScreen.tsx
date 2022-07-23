@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
@@ -16,6 +16,8 @@ import { ShieldData } from '../interface/shieldInterface'
 import { SorceriesData } from '../interface/sorceriesInterface'
 import { SpiritsData } from '../interface/spiritsInterface'
 import { TalismanData } from '../interface/talismanInterface'
+
+import SplashScreen from 'react-native-splash-screen'
 
 const windowwidth = Dimensions.get('window').width
 
@@ -38,7 +40,10 @@ interface Props {
 
 export const HomeScreen = ({ clases, bosses, creatures, npc, armor, shield, item, ammos, talisman, spirits, ashes, incantation, sorceries }: Props) => {
 
-
+    useEffect(() => {
+        SplashScreen.hide();
+    }, [])
+    
 
     const navigation = useNavigation()
 
