@@ -4,6 +4,7 @@ import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native'
 import { NpcData } from '../interface/npcInterface'
 import { SpiritsData } from '../interface/spiritsInterface'
+import { styles } from '../theme/appTheme'
 import { FadeInImage } from './FadeInImage'
 
 
@@ -36,7 +37,7 @@ export const CardSpirits = ({ spirits }: Props) => {
                 }}>
                     <FadeInImage
                         uri={spirits.image}
-                        style={styles.bossImage}
+                        style={styles.Image}
 
                     />
                     <Text style={styles.name}>
@@ -51,30 +52,3 @@ export const CardSpirits = ({ spirits }: Props) => {
         </TouchableOpacity>
     )
 }
-
-const styles = StyleSheet.create({
-    CardContainer: {
-        backgroundColor: '#242424',
-        marginHorizontal: 5,
-        height: 100,
-        marginBottom: 25,
-        borderRadius: 10,
-        flexDirection: 'row',
-        overflow: 'hidden'
-
-    },
-    name: {
-        color: '#FFFFFF',
-        fontSize: 9,
-        fontWeight: 'bold',
-        top: 20,
-        left: 10,
-        textAlignVertical: 'top',
-        flexWrap: 'wrap'
-
-    },
-    bossImage: {
-        width: 73,
-        height: 100
-    }
-});

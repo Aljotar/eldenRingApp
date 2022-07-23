@@ -53,7 +53,7 @@ export const ClassListScreen = () => {
                             fontWeight: 'bold',
                             marginBottom: 50,
                             marginTop:10,
-                            color: 'white'
+                            color: 'white',
 
                         }}>
                             Class

@@ -3,6 +3,7 @@ import React from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native'
 import { WeaponData } from '../interface/weaponInterface'
+import { styles } from '../theme/appTheme'
 import { FadeInImage } from './FadeInImage'
 
 
@@ -35,45 +36,14 @@ export const CardWeapon = ({ weapon }: Props) => {
                 }}>
                     <FadeInImage
                         uri={weapon.image}
-                        style={styles.bossImage}
+                        style={styles.weaponImage}
 
                     />
                     <Text style={styles.name}>
                         {weapon.name}
                     </Text>
-
-
-
                 </View>
-
             </View>
         </TouchableOpacity>
     )
 }
-
-const styles = StyleSheet.create({
-    CardContainer: {
-        backgroundColor: '#242424',
-        marginHorizontal: 5,
-        height: 100,
-        marginBottom: 25,
-        borderRadius: 10,
-        flexDirection: 'row',
-        overflow: 'hidden'
-
-    },
-    name: {
-        color: '#FFFFFF',
-        fontSize: 9,
-        fontWeight: 'bold',
-        top: 20,
-        left: 10,
-        textAlignVertical: 'top',
-        flexWrap: 'wrap'
-
-    },
-    bossImage: {
-        width: 73,
-        height: 100,
-    }
-});

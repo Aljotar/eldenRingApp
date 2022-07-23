@@ -276,4 +276,5 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         borderRadius: 10
     }
+
 })
