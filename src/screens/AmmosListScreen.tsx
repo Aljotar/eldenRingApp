@@ -5,6 +5,7 @@ import { CardAmmos } from '../components/CardAmmos';
 import { SearchInfo } from '../components/SearchInfo';
 import { useAmmos } from '../hooks/useAmmos';
 import { AmmosData } from '../interface/ammosInterface';
+import { styles } from '../theme/appTheme';
 
 export const AmmosListScreen = () => {
 
@@ -47,14 +48,7 @@ export const AmmosListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop: 10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Ammos
                         </Text>
                     )}

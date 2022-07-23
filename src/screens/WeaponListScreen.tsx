@@ -5,6 +5,7 @@ import { CardWeapon } from '../components/CardWeapon';
 import { SearchInfo } from '../components/SearchInfo';
 import { useWeapons } from '../hooks/useWeapons';
 import { WeaponData } from '../interface/weaponInterface';
+import { styles } from '../theme/appTheme';
 
 export const WeaponListScreen = () => {
 
@@ -52,14 +53,7 @@ export const WeaponListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop: 10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Weapons
                         </Text>
                     )}

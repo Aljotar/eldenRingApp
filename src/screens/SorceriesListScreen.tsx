@@ -5,6 +5,7 @@ import { CardSorceries } from '../components/CardSorceries';
 import { SearchInfo } from '../components/SearchInfo';
 import { useSorceries } from '../hooks/useSorceries';
 import { SorceriesData } from '../interface/sorceriesInterface';
+import { styles } from '../theme/appTheme';
 
 export const SorceriesListScreen = () => {
 
@@ -46,14 +47,7 @@ export const SorceriesListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop: 10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Sorciries
                         </Text>
                     )}

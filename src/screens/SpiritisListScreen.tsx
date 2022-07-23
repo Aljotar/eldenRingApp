@@ -5,6 +5,7 @@ import { CardSpirits } from '../components/CardSpirits';
 import { SearchInfo } from '../components/SearchInfo';
 import { useSpirits } from '../hooks/useSpirits';
 import { SpiritsData } from '../interface/spiritsInterface';
+import { styles } from '../theme/appTheme';
 
 export const SpiritsListScreen = () => {
 
@@ -47,14 +48,7 @@ export const SpiritsListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop: 10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Spiritis
                         </Text>
                     )}

@@ -5,6 +5,7 @@ import { CardShield } from '../components/CardShield';
 import { SearchInfo } from '../components/SearchInfo';
 import { useShield } from '../hooks/useShield';
 import { ShieldData } from '../interface/shieldInterface';
+import { styles } from '../theme/appTheme';
 
 export const ShieldListScreen = () => {
 
@@ -46,14 +47,7 @@ export const ShieldListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop: 10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Shields
                         </Text>
                     )}

@@ -5,6 +5,7 @@ import { CardClass } from '../components/CardClass';
 import { SearchInfo } from '../components/SearchInfo';
 import { useClass } from '../hooks/useClass'
 import { ClassData } from '../interface/classInterfaces';
+import { styles } from '../theme/appTheme';
 
 export const ClassListScreen = () => {
 
@@ -48,14 +49,7 @@ export const ClassListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop:10,
-                            color: 'white',
-
-                        }}>
+                        <Text style={styles.listName}>
                             Class
                         </Text>
                     )}

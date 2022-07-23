@@ -5,6 +5,7 @@ import { Cardcreature } from '../components/CardCreature';
 import { SearchInfo } from '../components/SearchInfo';
 import { useCreature } from '../hooks/useCreature';
 import { CreatureData } from '../interface/creatureInterface';
+import { styles } from '../theme/appTheme';
 
 export const CreatureListScreen = () => {
 
@@ -47,14 +48,7 @@ export const CreatureListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop: 10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Creatures
                         </Text>
                     )}

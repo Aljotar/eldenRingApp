@@ -5,6 +5,7 @@ import { CardItem } from '../components/CardItem';
 import { SearchInfo } from '../components/SearchInfo';
 import { useItem } from '../hooks/useItem';
 import { ItemData } from '../interface/itemsInterface';
+import { styles } from '../theme/appTheme';
 
 export const ItemListScreen = () => {
 
@@ -55,14 +56,7 @@ export const ItemListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop: 10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Items
                         </Text>
                     )}

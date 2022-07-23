@@ -5,6 +5,7 @@ import { CardTalisman } from '../components/CardTalisman';
 import { SearchInfo } from '../components/SearchInfo';
 import { useTalisman } from '../hooks/useTalisman';
 import { TalismanData } from '../interface/talismanInterface';
+import { styles } from '../theme/appTheme';
 
 export const TalismanListScreen = () => {
 
@@ -48,14 +49,7 @@ export const TalismanListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop: 10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Talismans
                         </Text>
                     )}

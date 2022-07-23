@@ -5,6 +5,7 @@ import { CardIncantation } from '../components/CardIncantation';
 import { SearchInfo } from '../components/SearchInfo';
 import { useIncantation } from '../hooks/useIncantation';
 import { IncantationData } from '../interface/incantationsInterface';
+import { styles } from '../theme/appTheme';
 
 export const IncantationListScreen = () => {
 
@@ -46,14 +47,7 @@ export const IncantationListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop: 10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Incantations
                         </Text>
                     )}

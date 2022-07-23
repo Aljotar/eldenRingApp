@@ -5,6 +5,7 @@ import { CardBoss } from '../components/CardBoss';
 import { SearchInfo } from '../components/SearchInfo';
 import { useBoss } from '../hooks/useBoss';
 import { BossData } from '../interface/bossInterface';
+import { styles } from '../theme/appTheme';
 
 export const BossListScreen = () => {
 
@@ -47,14 +48,7 @@ export const BossListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop: 10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Bosses
                         </Text>
                     )}

@@ -5,6 +5,7 @@ import { CardNpc } from '../components/CardNpc';
 import { SearchInfo } from '../components/SearchInfo';
 import { useNpc } from '../hooks/useNpc';
 import { NpcData } from '../interface/npcInterface';
+import { styles } from '../theme/appTheme';
 
 export const NpcListScreen = () => {
 
@@ -46,14 +47,7 @@ export const NpcListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop:10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Npc
                         </Text>
                     )}

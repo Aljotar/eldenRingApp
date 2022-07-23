@@ -5,6 +5,7 @@ import { CardArmor } from '../components/CardArmor';
 import { SearchInfo } from '../components/SearchInfo';
 import { useArmor } from '../hooks/useArmor';
 import { ArmorData } from '../interface/armorInterface';
+import { styles } from '../theme/appTheme';
 
 export const ArmorListScreen = () => {
 
@@ -52,14 +53,7 @@ export const ArmorListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop: 10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Armors
                         </Text>
                     )}

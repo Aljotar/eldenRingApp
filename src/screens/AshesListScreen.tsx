@@ -5,6 +5,7 @@ import { CardAshes } from '../components/CardAshes';
 import { SearchInfo } from '../components/SearchInfo';
 import { useAshes } from '../hooks/useAshes';
 import { AshesData } from '../interface/ashesInterface';
+import { styles } from '../theme/appTheme';
 
 export const AshesListScreen = () => {
 
@@ -47,14 +48,7 @@ export const AshesListScreen = () => {
                     )}
 
                     ListHeaderComponent={(
-                        <Text style={{
-                            fontSize: 30,
-                            fontWeight: 'bold',
-                            marginBottom: 50,
-                            marginTop: 10,
-                            color: 'white'
-
-                        }}>
+                        <Text style={styles.listName}>
                             Ashes
                         </Text>
                     )}

@@ -44,5 +44,13 @@ export const styles = StyleSheet.create({
             height: 80,
             left: 3,
             marginTop: 5
+    },
+    listName: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        marginBottom: 50,
+        marginTop: 10,
+        color: 'white',
+        alignSelf: 'center'
     }
 });
