@@ -20,8 +20,8 @@ export const CardIncantation = ({ incantation }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
-            onPress= {
-                () => navigation.navigate('IncantationScreen',{ IncantationData: incantation })
+            onPress={
+                () => navigation.navigate('IncantationScreen', { IncantationData: incantation })
             }
         >
 
@@ -39,9 +39,11 @@ export const CardIncantation = ({ incantation }: Props) => {
                         style={styles.Image}
 
                     />
-                    <Text style={styles.name}>
-                        {incantation.name}
-                    </Text>
+                    <View style={{ width: 110}}>
+                        <Text style={styles.name}>
+                            {incantation.name}
+                        </Text>
+                    </View>
                 </View>
             </View>
         </TouchableOpacity>

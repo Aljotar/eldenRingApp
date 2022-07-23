@@ -21,8 +21,8 @@ export const CardItem = ({ item }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
-            onPress= {
-                () => navigation.navigate('ItemScreen',{ ItemData: item })
+            onPress={
+                () => navigation.navigate('ItemScreen', { ItemData: item })
             }
         >
 
@@ -40,9 +40,11 @@ export const CardItem = ({ item }: Props) => {
                         style={styles.Image}
 
                     />
-                    <Text style={styles.name}>
-                        {item.name}
-                    </Text>
+                    <View style={{ width: 110}}>
+                        <Text style={styles.name}>
+                            {item.name}
+                        </Text>
+                    </View>
                 </View>
             </View>
         </TouchableOpacity>

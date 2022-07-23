@@ -20,8 +20,8 @@ export const Cardcreature = ({ creatures }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
-            onPress= {
-                () => navigation.navigate('CreatureScreen',{ CreatureData: creatures })
+            onPress={
+                () => navigation.navigate('CreatureScreen', { CreatureData: creatures })
             }
         >
 
@@ -39,14 +39,12 @@ export const Cardcreature = ({ creatures }: Props) => {
                         style={styles.Image}
 
                     />
-                    <Text style={styles.name}>
-                        {creatures.name}
-                    </Text>
-
-
-
+                    <View style={{ width: 114}}>
+                        <Text style={styles.name}>
+                            {creatures.name}
+                        </Text>
+                    </View>
                 </View>
-
             </View>
         </TouchableOpacity>
     )

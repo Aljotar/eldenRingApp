@@ -20,8 +20,8 @@ export const CardNpc = ({ npc }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
-            onPress= {
-                () => navigation.navigate('NpcScreen',{ NpcData: npc })
+            onPress={
+                () => navigation.navigate('NpcScreen', { NpcData: npc })
             }
         >
             <View style={{
@@ -35,9 +35,11 @@ export const CardNpc = ({ npc }: Props) => {
                         uri={npc.image}
                         style={styles.Image}
                     />
-                    <Text style={styles.name}>
-                        {npc.name}
-                    </Text>
+                    <View style={{ width: 110}}>
+                        <Text style={styles.name}>
+                            {npc.name}
+                        </Text>
+                    </View>
                 </View>
             </View>
         </TouchableOpacity>

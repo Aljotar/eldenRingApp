@@ -20,8 +20,8 @@ export const CardBoss = ({ bosses }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
-            onPress= {
-                () => navigation.navigate('BossesSreen',{ BossData: bosses })
+            onPress={
+                () => navigation.navigate('BossesSreen', { BossData: bosses })
             }
         >
 
@@ -39,14 +39,12 @@ export const CardBoss = ({ bosses }: Props) => {
                         style={styles.Image}
 
                     />
-                    <Text style={styles.name}>
-                        {bosses.name}
-                    </Text>
-
-
-
+                    <View style={{ width: 110}}>
+                        <Text style={styles.name}>
+                            {bosses.name}
+                        </Text>
+                    </View>
                 </View>
-
             </View>
         </TouchableOpacity>
     )

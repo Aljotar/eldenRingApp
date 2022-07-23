@@ -21,8 +21,8 @@ export const CardShield = ({ shield }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
-            onPress= {
-                () => navigation.navigate('ShieldScreen',{ ShieldData: shield })
+            onPress={
+                () => navigation.navigate('ShieldScreen', { ShieldData: shield })
             }
         >
             <View style={{
@@ -36,9 +36,11 @@ export const CardShield = ({ shield }: Props) => {
                         uri={shield.image}
                         style={styles.Image}
                     />
-                    <Text style={styles.name}>
-                        {shield.name}
-                    </Text>
+                    <View style={{ width: 110}}>
+                        <Text style={styles.name}>
+                            {shield.name}
+                        </Text>
+                    </View>
                 </View>
             </View>
         </TouchableOpacity>

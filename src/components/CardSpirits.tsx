@@ -21,8 +21,8 @@ export const CardSpirits = ({ spirits }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
-            onPress= {
-                () => navigation.navigate('SpiritsScreen',{ SpiritsData: spirits })
+            onPress={
+                () => navigation.navigate('SpiritsScreen', { SpiritsData: spirits })
             }
         >
 
@@ -40,12 +40,11 @@ export const CardSpirits = ({ spirits }: Props) => {
                         style={styles.Image}
 
                     />
-                    <Text style={styles.name}>
-                        {spirits.name}
-                    </Text>
-
-
-
+                    <View style={{ width: 110}}>
+                        <Text style={styles.name}>
+                            {spirits.name}
+                        </Text>
+                    </View>
                 </View>
 
             </View>

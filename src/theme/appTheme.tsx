@@ -12,11 +12,12 @@ export const styles = StyleSheet.create({
     },
     name: {
         color: '#FFFFFF',
-        fontSize: 14,
+        fontSize: 15,
         fontWeight: 'bold',
         top: 20,
         left: 10,
         textAlignVertical: 'top'
+        
 
     },
     Image: {

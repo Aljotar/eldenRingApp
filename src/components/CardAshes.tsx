@@ -21,8 +21,8 @@ export const CardAshes = ({ ashes }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
-            onPress= {
-                () => navigation.navigate('AshesScreen',{ AshesData: ashes })
+            onPress={
+                () => navigation.navigate('AshesScreen', { AshesData: ashes })
             }
         >
 
@@ -40,9 +40,11 @@ export const CardAshes = ({ ashes }: Props) => {
                         style={styles.Image}
 
                     />
-                    <Text style={styles.name}>
-                        {ashes.name}
-                    </Text>
+                    <View style={{ width: 117}}>
+                        <Text style={styles.name}>
+                            {ashes.name}
+                        </Text>
+                    </View>
                 </View>
 
             </View>

@@ -29,7 +29,7 @@ export const CardClass = ({ clases }: Props) => {
                 width: windowwidth * 0.4
             }}>
 
-                <View>
+                <View style={{ width: 117}}>
                     <Text style={styles.name}>
                         {clases.name}
                     </Text>

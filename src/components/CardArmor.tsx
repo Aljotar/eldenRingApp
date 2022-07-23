@@ -19,8 +19,8 @@ export const CardArmor = ({ armor }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
-            onPress= {
-                () => navigation.navigate('ArmorScreen',{ ArmorData: armor })
+            onPress={
+                () => navigation.navigate('ArmorScreen', { ArmorData: armor })
             }
         >
 
@@ -35,9 +35,11 @@ export const CardArmor = ({ armor }: Props) => {
                         uri={armor.image}
                         style={styles.Image}
                     />
-                    <Text style={styles.name}>
-                        {armor.name}
-                    </Text>
+                    <View style={{ width: 115}}>
+                        <Text style={styles.name}>
+                            {armor.name}
+                        </Text>
+                    </View>
                 </View>
             </View>
         </TouchableOpacity>

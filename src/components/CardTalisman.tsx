@@ -21,8 +21,8 @@ export const CardTalisman = ({ talisman }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
-            onPress= {
-                () => navigation.navigate('TalismanScreen',{ TalismanData: talisman })
+            onPress={
+                () => navigation.navigate('TalismanScreen', { TalismanData: talisman })
             }
         >
             <View style={{
@@ -37,9 +37,11 @@ export const CardTalisman = ({ talisman }: Props) => {
                         style={styles.Image}
 
                     />
-                    <Text style={styles.name}>
-                        {talisman.name}
-                    </Text>
+                    <View style={{ width: 110}}>
+                        <Text style={styles.name}>
+                            {talisman.name}
+                        </Text>
+                    </View>
                 </View>
             </View>
         </TouchableOpacity>

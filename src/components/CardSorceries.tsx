@@ -21,8 +21,8 @@ export const CardSorceries = ({ sorceries }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
-            onPress= {
-                () => navigation.navigate('SorceriesScreen',{ SorceriesData: sorceries })
+            onPress={
+                () => navigation.navigate('SorceriesScreen', { SorceriesData: sorceries })
             }
         >
 
@@ -40,9 +40,11 @@ export const CardSorceries = ({ sorceries }: Props) => {
                         style={styles.Image}
 
                     />
-                    <Text style={styles.name}>
-                        {sorceries.name}
-                    </Text>
+                    <View style={{ width: 110}}>
+                        <Text style={styles.name}>
+                            {sorceries.name}
+                        </Text>
+                    </View>
                 </View>
             </View>
         </TouchableOpacity>

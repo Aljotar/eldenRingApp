@@ -20,8 +20,8 @@ export const CardWeapon = ({ weapon }: Props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.9}
-            onPress= {
-                () => navigation.navigate('WeaponScreen',{ WeaponData: weapon })
+            onPress={
+                () => navigation.navigate('WeaponScreen', { WeaponData: weapon })
             }
         >
 
@@ -39,9 +39,11 @@ export const CardWeapon = ({ weapon }: Props) => {
                         style={styles.weaponImage}
 
                     />
-                    <Text style={styles.name}>
-                        {weapon.name}
-                    </Text>
+                    <View style={{ width: 103}}>
+                        <Text style={styles.name}>
+                            {weapon.name}
+                        </Text>
+                    </View>
                 </View>
             </View>
         </TouchableOpacity>
